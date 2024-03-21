@@ -29,7 +29,23 @@ public class BonusServiceTest {
                 LocalDate.now(),
                 new BigDecimal(3000)));
         assertEquals(
-                new BigDecimal(300).setScale(2, RoundingMode.HALF_UP),
-                bonus.setScale(2, RoundingMode.HALF_UP));
+                toRounded(300),
+                toRounded(bonus));
+    }
+
+    @Test
+    void shouldReceiveInLimitSalary() {
+        BonusService service = new BonusService();
+        BigDecimal bonus = service.calcularBonus(new Funcionario(
+                "dan",
+                LocalDate.now(),
+                new BigDecimal(10000)));
+        assertEquals(
+                toRounded(1000),
+                toRounded(bonus));
+    }
+
+    private BigDecimal toRounded(Number value) {
+        return new BigDecimal(value.doubleValue()).setScale(2, RoundingMode.HALF_UP);
     }
 }
