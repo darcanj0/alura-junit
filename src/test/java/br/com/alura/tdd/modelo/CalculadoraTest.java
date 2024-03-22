@@ -1,9 +1,7 @@
 package br.com.alura.tdd.modelo;
 
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
-
-import br.com.alura.tdd.modelo.Calculadora;
+import org.junit.jupiter.api.Test;
 
 public class CalculadoraTest {
     @Test
