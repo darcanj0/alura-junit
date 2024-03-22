@@ -3,12 +3,12 @@ package br.com.alura.tdd.service;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.time.LocalDate;
 
 import org.junit.jupiter.api.Test;
 
 import br.com.alura.tdd.modelo.Funcionario;
+import br.com.alura.tdd.test_util.TestUtils;
 
 public class BonusServiceTest {
     @Test
@@ -29,8 +29,8 @@ public class BonusServiceTest {
                 LocalDate.now(),
                 new BigDecimal(3000)));
         assertEquals(
-                toRounded(300),
-                toRounded(bonus));
+                TestUtils.toRounded(300),
+                TestUtils.toRounded(bonus));
     }
 
     @Test
@@ -41,11 +41,7 @@ public class BonusServiceTest {
                 LocalDate.now(),
                 new BigDecimal(10000)));
         assertEquals(
-                toRounded(1000),
-                toRounded(bonus));
-    }
-
-    private BigDecimal toRounded(Number value) {
-        return new BigDecimal(value.doubleValue()).setScale(2, RoundingMode.HALF_UP);
+                TestUtils.toRounded(1000),
+                TestUtils.toRounded(bonus));
     }
 }

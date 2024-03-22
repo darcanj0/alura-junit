@@ -9,6 +9,10 @@ public class Funcionario {
 	private LocalDate dataAdmissao;
 	private BigDecimal salario;
 
+	public void setSalario(BigDecimal salario) {
+		this.salario = salario;
+	}
+
 	public Funcionario(String nome, LocalDate dataAdmissao, BigDecimal salario) {
 		this.nome = nome;
 		this.dataAdmissao = dataAdmissao;
